@@ -420,6 +420,9 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
+        <partitions>
+            <partition name="combustion" size="100" mountpoint="/combustion" filesystem="ext4"/>
+        </partitions>
         </type>
     </preferences>
 
@@ -467,6 +470,9 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
+        <partitions>
+            <partition name="combustion" size="100" mountpoint="/combustion" filesystem="ext4"/>
+        </partitions>
         </type>
     </preferences>
 
