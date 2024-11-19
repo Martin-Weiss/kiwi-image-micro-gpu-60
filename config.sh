@@ -324,6 +324,7 @@ echo "UsePAM no" >> /etc/ssh/sshd_config
 #======================================
 # NVIDIA AGX GPU User Space
 #--------------------------------------
+if [[ "$kiwi_profiles" == *"aarch64-self_install-gpu"* ]]; then
 PKG_URL="https://susemanager.weiss.ddnss.de/pub/nvidia/Linux_for_Tegra/nv_tegra/l4t_tar_packages"
 for i in \
 nvidia-l4t-core_36.4.0-20240912212859_arm64.tbz2 \
@@ -360,5 +361,6 @@ echo /usr/lib/aarch64-linux-gnu | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
 echo /usr/lib/aarch64-linux-gnu/tegra-egl | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
 # -------------------------------------------------------
 ldconfig
+fi
 
 exit 0
