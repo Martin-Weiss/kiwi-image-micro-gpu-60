@@ -1,0 +1,10 @@
+addFilter("E: filelist-forbidden-fhs23");
+addFilter("E: devel-file-in-non-devel-package");
+addFilter("E: filelist-forbidden-systemd-userdirs");
+addFilter("E: filelist-forbidden-opt");
+addFilter("E: filelist-forbidden-move-to-usr");
+addFilter("E: env-script-interpreter");
+addFilter("W: non-conffile-in-etc");
+addFilter("E: statically-linked-binary");
+addFilter("E: binary-or-shlib-defines-rpath");
+

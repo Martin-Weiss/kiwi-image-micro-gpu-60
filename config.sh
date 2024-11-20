@@ -321,33 +321,34 @@ fi
 echo "PermitRootLogin  yes" > /etc/ssh/sshd_config
 echo "UsePAM no" >> /etc/ssh/sshd_config
 
+# now via rpm!
 #======================================
 # NVIDIA AGX GPU User Space
 #--------------------------------------
-if [[ "$kiwi_profiles" == *"aarch64-self_install-gpu"* ]]; then
-PKG_URL="https://susemanager.weiss.ddnss.de/pub/nvidia/Linux_for_Tegra/nv_tegra/l4t_tar_packages"
-for i in \
-nvidia-l4t-core_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-3d-core_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-cuda_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-gbm_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-multimedia-utils_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-multimedia_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-nvfancontrol_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-nvpmodel_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-tools_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-x11_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-nvsci_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-pva_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-wayland_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-camera_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-vulkan-sc-sdk_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-nvml_36.4.0-20240912212859_arm64.tbz2 \
-nvidia-l4t-init_36.4.0-20240912212859_arm64.tbz2; do
-  curl -sks $PKG_URL/$i -o $i
-  tar xjf $i -C /
-  rm $i
-done
+#if [[ "$kiwi_profiles" == *"aarch64-self_install-gpu"* ]]; then
+#PKG_URL="https://susemanager.weiss.ddnss.de/pub/nvidia/Linux_for_Tegra/nv_tegra/l4t_tar_packages"
+#for i in \
+#nvidia-l4t-core_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-3d-core_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-cuda_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-gbm_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-multimedia-utils_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-multimedia_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-nvfancontrol_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-nvpmodel_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-tools_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-x11_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-nvsci_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-pva_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-wayland_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-camera_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-vulkan-sc-sdk_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-nvml_36.4.0-20240912212859_arm64.tbz2 \
+#nvidia-l4t-init_36.4.0-20240912212859_arm64.tbz2; do
+#  curl -sks $PKG_URL/$i -o $i
+#  tar xjf $i -C /
+#  rm $i
+#done
 
 # if system does NOT have a dGPU
 # -------------------------------------------------------
@@ -357,10 +358,10 @@ done
 #          /usr/lib64/xorg/modules/extensions/
 #rm -rf /usr/lib/xorg
 
-echo /usr/lib/aarch64-linux-gnu | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
-echo /usr/lib/aarch64-linux-gnu/tegra-egl | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
+#echo /usr/lib/aarch64-linux-gnu | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
+#echo /usr/lib/aarch64-linux-gnu/tegra-egl | tee -a /etc/ld.so.conf.d/nvidia-tegra.conf
 # -------------------------------------------------------
-ldconfig
-fi
+#ldconfig
+#fi
 
 exit 0

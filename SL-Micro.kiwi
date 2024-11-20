@@ -300,6 +300,10 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
+        <partitions>
+            <partition name="artefacts" size="1024" mountpoint="/artefacts" filesystem="ext4"/>
+            <partition name="combustion" size="1024" mountpoint="/combustion" filesystem="ext4"/>
+        </partitions>
         </type>
     </preferences>
 
@@ -421,7 +425,8 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
         <partitions>
-            <partition name="combustion" size="100" mountpoint="/combustion" filesystem="ext4"/>
+            <partition name="artefacts" size="1024" mountpoint="/artefacts" filesystem="ext4"/>
+            <partition name="combustion" size="1024" mountpoint="/combustion" filesystem="ext4"/>
         </partitions>
         </type>
     </preferences>
@@ -471,7 +476,8 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
         <partitions>
-            <partition name="combustion" size="100" mountpoint="/combustion" filesystem="ext4"/>
+            <partition name="artefacts" size="1024" mountpoint="/artefacts" filesystem="ext4"/>
+            <partition name="combustion" size="1024" mountpoint="/combustion" filesystem="ext4"/>
         </partitions>
         </type>
     </preferences>
@@ -881,6 +887,7 @@
     <packages type="image" profiles="aarch64-self_install-gpu,aarch64-self_install-gpu-encrypted">
 	<package name="nvidia-jetson-36_4-kmp-default"/>
 	<package name="nvidia-container-toolkit-1.16.2-1"/>
+	<package name="nvidia-jetson-userspace-36.4.0_20240912212859-0"/>
 	<package name="bzip2"/>
     	<!-- iscsi and nfs i.e. for longhorn -->
         <package name="open-iscsi"/>

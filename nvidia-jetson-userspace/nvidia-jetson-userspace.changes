@@ -1,0 +1,85 @@
+-------------------------------------------------------------------
+Fri Oct 11 12:32:26 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- update to version 36.4.0-20240912212859 (Jetpack 6.1)
+- /etc/X11/xorg.conf.t194_ref no longer included
+
+-------------------------------------------------------------------
+Mon Jun 10 12:26:03 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- added missing /usr/lib/aarch64-linux-gnu/tegra-egl path to
+  ld.so.conf.d snippet; needed for libEGL_nvidia.so.0
+- moved conflicting files with nvidia-gl-G06 from dGPU driver to
+  -igpu subpackage
+  * /etc/vulkan/icd.d/nvidia_icd.json
+  * /usr/bin/nvidia-xconfig
+  * /usr/lib64/xorg/modules/drivers/nvidia_drv.so
+  * /usr/lib64/xorg/modules/extensions/libglxserver_nvidia.so
+  * /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+
+-------------------------------------------------------------------
+Mon Jun  3 01:47:16 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- update to version 36.3.1-20240516220919
+
+-------------------------------------------------------------------
+Sat Jun  1 14:24:05 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- fixed version in specfile 
+
+-------------------------------------------------------------------
+Tue May 28 07:57:09 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- no longer install firmware tarball, which has moved to KMP build
+  (kernel-firmware-nvidia-jetson subpackage)
+
+-------------------------------------------------------------------
+Sun May  5 11:58:51 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- replaced zip file with official tarball (no changes!)
+
+-------------------------------------------------------------------
+Thu May  2 12:20:11 UTC 2024 - Klaus Kämpf <kkaempf@suse.com>
+ 
+- drop /usr/sbin/wpa_supplicant
+
+-------------------------------------------------------------------
+Thu May  2 09:48:45 UTC 2024 - Klaus Kämpf <kkaempf@suse.com>
+
+- add nvidia-jetson-userspace-rpmlintrc
+
+-------------------------------------------------------------------
+Sun Apr 28 12:28:30 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- update to version 36.3.0-20240424200557 aka 
+  2024-04-24_rel-36.3 PRC1 
+
+-------------------------------------------------------------------
+Thu Apr 18 11:17:08 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- run ldconfig in %post/%postun 
+
+-------------------------------------------------------------------
+Thu Apr 11 11:11:01 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- update to version 36.3.0-20240404104251
+- added nv systemd service files needed by nvpmodel service files
+  from generated nvidia-l4t-init tarball
+
+-------------------------------------------------------------------
+Tue Apr  9 13:11:57 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- added self - Provides: libcuda.so()(64bit)
+
+-------------------------------------------------------------------
+Tue Apr  9 11:00:12 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- ExclusiveArch: aarch64
+- added extraction of nvidia-l4t-nvml tarball for having
+  nvidia-smi tool and required lib for it
+
+-------------------------------------------------------------------
+Mon Apr  8 12:52:40 UTC 2024 - Stefan Dirsch <sndirsch@suse.com>
+
+- package created
+
