@@ -126,6 +126,12 @@ sed -e '/^PERMISSION_SECURITY=s/easy/paranoid/' /etc/sysconfig/security
 chkstat --set --system
 
 #======================================
+# Create Mountpoint for combustion and artefacts
+#--------------------------------------
+
+mkdir -p /oem
+
+#======================================
 # SSL Certificates Configuration
 #--------------------------------------
 echo '** Rehashing SSL Certificates...'

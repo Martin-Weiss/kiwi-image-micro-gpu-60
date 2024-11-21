@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "root" >.gitignore
 echo "image" >.gitignore
 echo "image-bundle" >>.gitignore
 
