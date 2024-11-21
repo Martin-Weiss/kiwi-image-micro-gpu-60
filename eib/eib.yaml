@@ -1,4 +1,9 @@
 apiVersion: 1.1
+image:
+  arch: x86_64
+  imageType: combustion
+  baseImage: ""
+  outputImageName: combustion.tar.gz
 operatingSystem:
   keymap: de
   time:

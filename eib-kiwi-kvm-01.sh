@@ -13,7 +13,7 @@ if [ "$1" == "" ]; then
 			--vcpus 4 \
 			--network bridge=br0,mac=$MAC_ADDRESS1 \
 			--graphics vnc \
-			--cdrom https://susemanager.weiss.ddnss.de/os-images/1/SL-Micro-6.0.0-4/SL-Micro.x86_64-6.0.0.install.iso \
+			--cdrom https://susemanager.weiss.ddnss.de/os-images/1/SL-Micro-6.0.0-6/SL-Micro.x86_64-6.0.0.install.iso \
 			--disk bus=scsi,pool=images-nvme3,size=50,sparse=true \
 			--osinfo slem6.0 \
 			--boot uefi,loader_secure=yes \
