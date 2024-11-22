@@ -3,7 +3,7 @@ image:
   arch: x86_64
   imageType: combustion
   baseImage: ""
-  outputImageName: combustion.tar.gz
+  outputImageName: combustion.iso
 operatingSystem:
   keymap: de
   time:

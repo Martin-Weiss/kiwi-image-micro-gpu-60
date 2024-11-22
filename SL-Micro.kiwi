@@ -301,7 +301,7 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
         <partitions>
-            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="ext4"/>
+            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
         </partitions>
         </type>
     </preferences>
@@ -424,8 +424,7 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
         <partitions>
-            <partition name="artefacts" size="1024" mountpoint="/artefacts" filesystem="ext4"/>
-            <partition name="combustion" size="1024" mountpoint="/combustion" filesystem="ext4"/>
+            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
         </partitions>
         </type>
     </preferences>
@@ -475,8 +474,7 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
         <partitions>
-            <partition name="artefacts" size="1024" mountpoint="/artefacts" filesystem="ext4"/>
-            <partition name="combustion" size="1024" mountpoint="/combustion" filesystem="ext4"/>
+            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
         </partitions>
         </type>
     </preferences>

@@ -2,8 +2,8 @@
 podman run \
 	--rm --privileged \
 	-v $PWD/eib:/eib \
-	docker.io/dgiebert/edge-image-builder:1.2.1 \
+	docker.io/dgiebert/edge-image-builder:1.2.4 \
 	build --definition-file=eib.yaml
 rm -rf root
 mkdir -p root/oem
-tar xvf eib/combustion.tar.gz -C root/oem ./combustion ./artefacts/
+xorriso -osirrox on -indev eib/combustion.iso extract / root/oem
