@@ -770,10 +770,15 @@
 
     <!-- Ignition / Combustion everywhere, cloud-init only in selected images
     <packages type="image" profiles="aarch64-self_install,rpi,s390-dasd,s390-fba,s390-kvm,x86,x86-encrypted,x86-legacy,x86-rt,x86-rt-encrypted,x86-rt-self_install,x86-self_install"> -->
-    <packages type="image">
-        <package name="ignition"/>
+    <packages type="image">		    
+    <!--  we do not use ignition -->
+    <!--        <package name="ignition"/> -->
         <package name="combustion &gt;= 1.2"/> <!-- New firstboot mechanism -->
 	<package name="jeos-firstboot"/>
+    <!--  suse manager registration and elemental registration -->
+	<package name="venv-salt-minion"/>
+        <package name="elemental-register"/>
+        <package name="elemental-system-agent"/>
     </packages>
 
     <packages type="image" profiles="x86-qcow,x86-vmware,aarch64-qcow">
