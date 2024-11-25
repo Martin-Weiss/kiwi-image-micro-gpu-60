@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitrepo-auth-gpu-app
+  namespace: fleet-default
+type: kubernetes.io/basic-auth
+data:
+  username: cmFuY2hlcg==
+  password: Z2xwYXQteHN0Z21MbnNxZ1E2R3VMSkhYeV8=

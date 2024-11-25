@@ -1,8 +1,6 @@
 elemental:
     registration:
-        emulate-tpm: true
-        emulated-tpm-seed: -1
-        url: https://rancher.suse/elemental/registration/8kqgvv7h4qlgsknx5w5v9fwdxcwfzrv59fsf8mpdlzcxlc8zccgtpk
+        url: https://rancher.suse/elemental/registration/rjtcd989ddkw8v47fgtnjb9vghcz57js89bl8mvqg8lghjpwkbzq7n
         ca-cert: |-
             -----BEGIN CERTIFICATE-----
             MIIDhzCCAm+gAwIBAgIUVS8hv/sK6r15ZjVf/Zz/AQdoqjAwDQYJKoZIhvcNAQEL
@@ -25,3 +23,7 @@ elemental:
             amXoZIEHPRiXltNGg6NdyeSgMX0qugYyNpHRnwvwVqa9+76cOFfrQqRqq8ueeZY3
             T7s2fY/AJ5Eg66wfhxSm8rNf31TWCz8eaqlTm5kd5Fzf2vwZp84pnDmLRg==
             -----END CERTIFICATE-----
+        emulate-tpm: true
+        emulated-tpm-seed: -1
+        auth: tpm
+
