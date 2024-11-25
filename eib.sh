@@ -2,7 +2,7 @@
 podman run \
 	--rm --privileged \
 	-v $PWD/eib:/eib \
-	docker.io/dgiebert/edge-image-builder:1.2.6 \
+	docker.io/dgiebert/edge-image-builder:1.2.8 \
 	build --definition-file=eib.yaml
 rm -rf root
 mkdir -p root/oem
