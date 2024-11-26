@@ -888,8 +888,8 @@
     <!-- nvidia agx -->
     <packages type="image" profiles="aarch64-self_install-gpu,aarch64-self_install-gpu-encrypted">
 	<package name="nvidia-jetson-36_4-kmp-default"/>
-	<package name="nvidia-container-toolkit-1.16.2-1"/>
-	<package name="nvidia-jetson-userspace-36.4.0_20240912212859-0"/>
+	<package name="nvidia-container-toolkit"/>
+	<package name="nvidia-jetson-userspace"/>
 	<package name="bzip2"/>
     	<!-- iscsi and nfs i.e. for longhorn -->
         <package name="open-iscsi"/>
