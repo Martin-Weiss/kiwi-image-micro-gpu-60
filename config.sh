@@ -327,6 +327,14 @@ fi
 echo "PermitRootLogin  yes" > /etc/ssh/sshd_config
 echo "UsePAM no" >> /etc/ssh/sshd_config
 
+#======================================
+# NVIDIA AGX GPU based - add network driver to initrd to allow combustion-prepare to use and configure it
+#--------------------------------------
+if [[ "$kiwi_profiles" == *"aarch64-self_install-gpu"* ]]; then
+	# required for combustion to enable and configure the network
+	echo 'add_drivers+=" nvethernet nvpps "' > /etc/dracut.conf.d/nvethernet_modules.conf
+fi
+
 # now via rpm!
 #======================================
 # NVIDIA AGX GPU User Space

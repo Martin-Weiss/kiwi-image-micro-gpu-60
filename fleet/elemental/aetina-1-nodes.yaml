@@ -1,7 +1,7 @@
 apiVersion: elemental.cattle.io/v1beta1
 kind: MachineInventorySelectorTemplate
 metadata:
-  name: gpu-1-nodes
+  name: aetina-1-nodes
   namespace: fleet-default
 spec:
   template:
@@ -14,4 +14,5 @@ spec:
               - NVIDIA
         matchLabels:
           manufacturer: NVIDIA
-          serialNumber: '1420924215323'
+          serialNumber: '1421024264408'
+          #serialNumber: 'A96AA000107'

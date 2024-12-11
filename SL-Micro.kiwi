@@ -392,7 +392,14 @@
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
         <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
+	<locale>en_US</locale>
+	<!-- you can add rd.kiwi.oem.installdevice=/dev/nvme0n1 for Aetina device blind and unattended installation -->
+	<!-- on the NVIDIA Orin AGX device we need to use console=ttyTCU0,115200 for the serial console during installation -->
+	<!-- on the Aetina device we need to use console=tty0 during installation to get stuff displayed on the HDMI connected display -->
+	<!-- removed quiet as well to get more info to the screen -->
+	<!-- on the NVIDIA Orin AGX it was required to get the latest firmware installed (part of jetpack 6.1) as otherwise the kernel crashes -->
+	<!-- on the Aetina it was NOT required to get the latest firmware installed (Aetina only supports jetpack 6.0 as of today) - but current firmeware works -->
+	<!-- changing net.ifnames=0 to net.ifnames=1 to ensure we keep the same NIC name during installation and after reboot - problem was NVETHERNET where we got eth4 during installation time on Aetina but this switches to eth0 after first reboot -->
         <type
             image="oem"
             initrd_system="dracut"
@@ -401,8 +408,8 @@
             installboot="install"
             install_continue_on_timeout="false"
             firmware="uefi"
-            efipartsize="128"
-            kernelcmdline="console=ttyTCU0,115200 security=selinux selinux=0 quiet net.ifnames=0"
+	    efipartsize="128"
+            kernelcmdline="console=tty0 security=selinux selinux=0 net.ifnames=1"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
@@ -445,7 +452,7 @@
             install_continue_on_timeout="false"
             firmware="uefi"
             efipartsize="128"
-            kernelcmdline="console=ttyTCU0,115200 security=selinux selinux=0 quiet net.ifnames=0"
+            kernelcmdline="console=tty0 security=selinux selinux=0 net.ifnames=1"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
