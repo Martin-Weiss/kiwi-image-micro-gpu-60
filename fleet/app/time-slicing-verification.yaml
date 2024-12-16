@@ -24,7 +24,7 @@ spec:
           command: ["/bin/bash", "-c", "--"]
           args:
             - while true; do /cuda-samples/vectorAdd; done
-            #          resources:
-            #            limits:
-              #              nvidia.com/gpu: 1
+          resources:
+            limits:
+              nvidia.com/gpu: 1
 

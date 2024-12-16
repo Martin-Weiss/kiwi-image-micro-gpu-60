@@ -10,6 +10,7 @@ spec:
   insecureSkipTLSVerify: false
   paths:
     - fleet/app
+    - fleet/nvidia
   repo: https://gitlab01.suse:10443/root/kiwi-image-micro-gpu-60.git
   targets:
   - name: gpu-1
