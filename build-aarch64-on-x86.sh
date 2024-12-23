@@ -30,13 +30,12 @@ mkdir -p ./repo
 curl -k https://susemanager.weiss.ddnss.de/pub/rhn-org-trusted-ssl-cert-osimage-1.0-1.noarch.rpm -o repo/rhn-org-trusted-ssl-cert-osimage-1.0-1.noarch.rpm
 
 # setup qemu-arm userspace emulation
-#podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes
+podman run --rm --privileged docker.io/multiarch/qemu-user-static --reset -p yes
 
 # Hint: clone channel in SUSE Manager for pool -> child
 # softwarechannel_clone -s sl-micro-6.0-pool-aarch64 -n staging-slmicro60a64-test-sl-micro-6.0-pool-aarch64-clone -p staging-slmicro60a64-test-sl-micro-6.0-pool-aarch64 -l staging-slmicro60a64-test-sl-micro-6.0-pool-aarch64-clone
 
-#podman run --platform=linux/arm64/v8 --privileged \
-podman run --privileged \
+podman run --platform=linux/arm64/v8 --privileged \
 -v /var/lib/ca-certificates:/var/lib/ca-certificates \
 -v ./repo:/var/lib/Kiwi/repo \
 -v $TARGET_DIR/kiwi.yml:/etc/kiwi.yml \
