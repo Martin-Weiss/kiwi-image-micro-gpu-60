@@ -36,6 +36,11 @@ spec:
             - https://registry01.suse/v2/
           rewrite:
             (.*): rke-test/nvcr.io/$1
+        dp.apps.rancher.io:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/dp.apps.rancher.io/$1
     machinePools:
       - name: gpu-1-nodes
         controlPlaneRole: true
