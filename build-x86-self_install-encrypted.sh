@@ -8,7 +8,7 @@ echo "image-bundle" >>.gitignore
 TARGET_DIR=.
 #PROFILE="aarch64-self_install"
 #PROFILE="aarch64-self_install-gpu"
-PROFILE="x86-self_install"
+PROFILE="x86-self_install-encrypted"
 KIWI_IMAGE="registry.suse.com/bci/kiwi:10.1.10"
 
 # clean and recreate the build folder

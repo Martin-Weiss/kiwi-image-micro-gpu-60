@@ -176,6 +176,8 @@ if [ "${kiwi_btrfs_root_is_snapshot-false}" = 'true' ]; then
 	sed -i'' 's/^NUMBER_LIMIT_IMPORTANT=.*$/NUMBER_LIMIT_IMPORTANT="4-10"/g' /etc/snapper/configs/root
 fi
 
+# disable firstboot due to fde testing 31st of January 2025
+
 # Enable jeos-firstboot if installed, disabled by combustion/ignition
 if rpm -q --whatprovides jeos-firstboot >/dev/null; then
         mkdir -p /var/lib/YaST2

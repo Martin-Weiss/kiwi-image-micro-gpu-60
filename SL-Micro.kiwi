@@ -30,6 +30,9 @@
         <profile name="x86-self_install" description="Raw disk for x86_64 - uEFI" arch="x86_64">
             <requires profile="bootloader"/>
         </profile>
+        <profile name="x86-self_install-encrypted" description="Raw disk for x86_64 - uEFI" arch="x86_64">
+            <requires profile="bootloader"/>
+        </profile>
         <profile name="aarch64-self_install" description="Raw disk for aarch64" arch="aarch64">
             <requires profile="bootloader"/>
         </profile>
@@ -306,6 +309,56 @@
         </type>
     </preferences>
 
+    <preferences profiles="x86-self_install-encrypted">
+        <version>6.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>SLE</bootsplash-theme>
+        <bootloader-theme>SLE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <locale>en_US</locale>
+        <type
+            image="oem"
+            initrd_system="dracut"
+            installiso="true"
+            filesystem="btrfs"
+            installboot="install"
+            install_continue_on_timeout="false"
+            firmware="uefi"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=0 net.ifnames=1 rd.debug rd.kiwi.oem.installdevice=/dev/sda"
+            bootpartition="false"
+            bootkernel="custom"
+            devicepersistency="by-uuid"
+            btrfs_root_is_snapshot="true"
+            btrfs_root_is_readonly_snapshot="true"
+            btrfs_quota_groups="true"
+	    disk_start_sector="4096"
+            luks_version="luks2"
+            luks="1234"
+            luks_randomize="false"
+            luks_pbkdf="pbkdf2"
+
+  	    >
+            <luksformat>
+                <option name="--cipher" value="aes"/>
+   	    </luksformat>
+            <bootloader name="grub2" console="gfxterm" use_disk_password="true" timeout="3" />
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+                <volume name="boot/writable"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+        <partitions>
+            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
+        </partitions>
+        </type>
+    </preferences>
     <preferences profiles="rpi">
         <version>6.0.0</version>
         <packagemanager>zypper</packagemanager>
@@ -739,7 +792,7 @@
         <package name="k3s-install"/>
     </packages>
 
-    <packages type="image" profiles="x86-encrypted,x86-rt-encrypted">
+    <packages type="image" profiles="x86-encrypted,x86-rt-encrypted,x86-self_install-encrypted">
         <!-- full disk encryption stuff -->
         <package name="device-mapper"/>
         <package name="cryptsetup"/>
@@ -834,7 +887,7 @@
 	    <package name="kpartx" arch="s390x"/>--> <!-- previous releases picked it always, now kiwi picks partx instead -->
     </packages>
     <!-- rpi kernel-default-base does not provide all necessary drivers -->
-    <packages type="image" profiles="x86,x86-encrypted,x86-legacy,x86-self_install,x86-vmware,x86-qcow,aarch64-qcow,s390-kvm,s390-dasd,s390-fba">
+    <packages type="image" profiles="x86,x86-encrypted,x86-self_install-encrypted,x86-legacy,x86-self_install,x86-vmware,x86-qcow,aarch64-qcow,s390-kvm,s390-dasd,s390-fba">
         <package name="kernel-default"/>
         <package name="kernel-firmware-all"/>
     </packages>
@@ -852,7 +905,7 @@
         <package name="dracut-kiwi-oem-repart"/>
         <package name="blog"/>
     </packages>
-    <packages type="image" profiles="x86,x86-encrypted,x86-rt-encrypted,x86-self_install,x86-legacy,x86-vmware,x86-rt,x86-rt-self_install,x86-qcow,aarch64-qcow,rpi,aarch64-self_install,aarch64-self_install-gpu,aarch64-self_install,aarch64-self_install-gpu-encrypted">
+    <packages type="image" profiles="x86,x86-encrypted,x86-rt-encrypted,x86-self_install,x86-self_install-encrypted,x86-legacy,x86-vmware,x86-rt,x86-rt-self_install,x86-qcow,aarch64-qcow,rpi,aarch64-self_install,aarch64-self_install-gpu,aarch64-self_install,aarch64-self_install-gpu-encrypted">
         <package name="dracut-kiwi-oem-repart"/>
         <package name="dracut-kiwi-oem-dump"/>
     </packages>
